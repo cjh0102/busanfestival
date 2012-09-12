@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name = "port">#AAFF1493</color>
+	<color name = "sea">#AAADFF2F</color>
+	<color name = "rock">#AA00A5FF</color>
+	<color name = "flame">#AA87CEFA</color>
+	<color name = "sun">#AAB90000</color>
+</resources>

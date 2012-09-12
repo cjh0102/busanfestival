@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/quiz_port"
+	android:orientation="horizontal"
+	android:weightSum="10">
+
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="10"
+		android:orientation="vertical"
+		android:weightSum="5">
+
+		<View
+			android:id="@+id/view3"
+			android:layout_width="fill_parent"
+			android:layout_height="0px"
+			android:layout_weight="1.85"/>
+
+		<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="0px"
+			android:layout_weight="0.30">
+
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:weightSum="5">
+
+				<View
+					android:id="@+id/view1"
+					android:layout_width="0px"
+					android:layout_height="fill_parent"
+					android:layout_weight="0.8"/>
+
+				<EditText
+					android:id="@+id/sunEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.8"
+					android:ems="10"
+					android:visibility="invisible">
+
+					<requestFocus/>
+				</EditText>
+
+				<View
+					android:id="@+id/view2"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="3.4"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:weightSum="5">
+
+				<View
+					android:id="@+id/view4"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="3.2"/>
+
+				<EditText
+					android:id="@+id/rockEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.65"
+					android:ems="10"
+					android:visibility="invisible"/>
+
+				<View
+					android:id="@+id/view5"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.1"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:weightSum="5">
+
+				<View
+					android:id="@+id/view6"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.65"/>
+
+				<EditText
+					android:id="@+id/portEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.1"
+					android:ems="10"
+					android:visibility="invisible"/>
+
+				<View
+					android:id="@+id/view7"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.25"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:weightSum="5">
+
+				<View
+					android:id="@+id/view8"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.65"/>
+
+				<EditText
+					android:id="@+id/seaEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.02"
+					android:ems="10"
+					android:visibility="invisible"/>
+
+				<View
+					android:id="@+id/view9"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.3"/>
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:weightSum="5">
+
+				<View
+					android:id="@+id/view10"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.5"/>
+
+				<EditText
+					android:id="@+id/flameEditText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1.28"
+					android:ems="10"
+					android:visibility="invisible"/>
+
+				<View
+					android:id="@+id/view11"
+					android:layout_width="0px"
+					android:layout_height="wrap_content"
+					android:layout_weight="3.26"/>
+			</LinearLayout>
+		</FrameLayout>
+
+		<View
+			android:id="@+id/view12"
+			android:layout_width="wrap_content"
+			android:layout_height="0px"
+			android:layout_weight="0.35"/>
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="0px"
+			android:layout_weight="1.62"
+			android:weightSum="4">
+
+			<View
+				android:id="@+id/view14"
+				android:layout_width="0px"
+				android:layout_height="wrap_content"
+				android:layout_weight="2.39"/>
+
+			<View
+				android:id="@+id/imageView"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.6"/>
+		</LinearLayout>
+
+		<View
+			android:id="@+id/view13"
+			android:layout_width="fill_parent"
+			android:layout_height="0px"
+			android:layout_weight="0.2"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0px"
+			android:layout_weight="0.67"
+			android:weightSum="10">
+
+			<View
+				android:id="@+id/view15"
+				android:layout_width="0px"
+				android:layout_height="wrap_content"
+				android:layout_weight="2"/>
+
+			<View
+				android:id="@+id/view16"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2"/>
+
+			<View
+				android:id="@+id/view17"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2"/>
+
+			<View
+				android:id="@+id/view18"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2"/>
+
+			<View
+				android:id="@+id/view19"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2"/>
+		</LinearLayout>
+	</LinearLayout>
+
+</LinearLayout>
