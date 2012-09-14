@@ -23,7 +23,9 @@ public class MainActivity extends Activity {
 		quizImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				intent = new Intent(MainActivity.this, QuizIntroActivity.class);
 				intent.putExtra("msg", "quiz");
+				startActivity(intent);
 			}
 		});
 		

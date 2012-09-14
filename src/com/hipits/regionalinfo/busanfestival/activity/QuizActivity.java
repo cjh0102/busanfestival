@@ -1,0 +1,454 @@
+package com.hipits.regionalinfo.busanfestival.activity;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.Map;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+public class QuizActivity extends Activity implements OnClickListener{
+	private Map<String, String> map;
+	EditText sunEditText;
+	EditText rockEditText;
+	EditText portEditText;
+	EditText seaEditText;
+	EditText flameEditText;
+	View v15;
+	View v16;
+	View v17;
+	View v18;
+	View v19;
+	View imagev;
+	LinearLayout linl;
+	String[] quizs = {"e", "e",	"w!! w", "w!!", "w!"};
+	String[] quizs2 = {"a", "a!","a", "b! b", "b!"};
+
+	int count = 0;
+	File path;
+	File file;
+	FileWriter writer;
+	String reads;
+	int[] overlap = new int[5];
+	Intent intent;
+
+	String strs[] = {"","","","","",""};
+	String overlab[] = {"","","","","",""};
+
+	AlertDialog.Builder alert;
+
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_quiz);
+
+		alert = new AlertDialog.Builder(this); //���̾�α�
+
+		path = new File(Environment.getExternalStorageDirectory() + "/temp1");
+		path.mkdirs();
+
+		file = new File(path, "flag.txt");
+
+		/*		try{
+			if (file.exists()){
+				file.delete();
+				}
+			}catch(Exception e){;}
+		 */
+		try{
+			writer = new FileWriter(file, true);
+
+			BufferedReader br = new BufferedReader(new FileReader(Environment.getExternalStorageDirectory()
+					+ "/temp1/flag.txt")); 
+			strs = br.readLine().split("\t");       	   
+			br.close();
+
+		}catch(Exception e){;}  
+
+		for(int i = 0; i < strs.length; i++)
+		{
+			if(strs[i].equals("1"))
+				overlab[0] = "1";
+			else if (strs[i].equals("2"))
+				overlab[1] = "2";
+			else if (strs[i].equals("3"))
+				overlab[2] = "3";
+			else if (strs[i].equals("4"))
+				overlab[3] = "4";
+			else if (strs[i].equals("5"))
+				overlab[4] = "5";
+		}
+
+
+		map = new HashMap<String, String>();
+		map.put("1", "y");
+		map.put("2", "n");
+		map.put("3", "f");
+		map.put("4", "h");
+		map.put("5", "m");
+
+
+		sunEditText = (EditText) findViewById(R.id.sunEditText);
+		rockEditText = (EditText) findViewById(R.id.rockEditText);
+		portEditText = (EditText) findViewById(R.id.portEditText);
+		seaEditText = (EditText) findViewById(R.id.seaEditText);
+		flameEditText = (EditText) findViewById(R.id.flameEditText);
+
+		sunEditText.setVisibility(View.VISIBLE);
+
+		v15 = (View)findViewById(R.id.view15);
+		v16 = (View)findViewById(R.id.view16);
+		v17 = (View)findViewById(R.id.view17);
+		v18 = (View)findViewById(R.id.view18);
+		v19 = (View)findViewById(R.id.view19);
+		imagev = (View)findViewById(R.id.imageView);
+		linl = (LinearLayout)findViewById(R.id.LinearLayout1);
+
+		v15.setOnClickListener(this);
+		v16.setOnClickListener(this);
+		v17.setOnClickListener(this);
+		v18.setOnClickListener(this);
+		v19.setOnClickListener(this);
+		imagev.setOnClickListener(this);
+
+
+		sunEditText.setVisibility(View.VISIBLE);
+		portEditText.setVisibility(View.INVISIBLE);
+		seaEditText.setVisibility(View.INVISIBLE);
+		rockEditText.setVisibility(View.INVISIBLE);
+		flameEditText.setVisibility(View.INVISIBLE);
+		linl.setBackgroundResource(R.drawable.festival_1_introduction2);
+		v15.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_1);
+		v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
+		v17.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_3);
+		v18.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_4);
+		v19.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_5);
+		count = 1;
+
+	}
+
+	@Override
+	public void onClick(View v) {
+		try{
+			String strs[];
+			BufferedReader br = new BufferedReader(new FileReader(Environment.getExternalStorageDirectory()
+					+ "/temp1/flag.txt")); 
+			strs = br.readLine().split("\t");       	   
+			br.close();
+		}catch(Exception e){
+
+		}
+
+		if((v.getId()==R.id.view15)){
+			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_1);
+			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
+			v17.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_3);
+			v18.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_4);
+			v19.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_5);
+			sunEditText.setVisibility(View.VISIBLE);
+			portEditText.setVisibility(View.INVISIBLE);
+			seaEditText.setVisibility(View.INVISIBLE);
+			rockEditText.setVisibility(View.INVISIBLE);
+			flameEditText.setVisibility(View.INVISIBLE);
+			linl.setBackgroundResource(R.drawable.festival_1_introduction2);
+			count = 1;
+		}
+		else if(v.getId()==R.id.view16){
+			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_1);
+			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_2);
+			v17.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_3);
+			v18.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_4);
+			v19.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_5);
+			sunEditText.setVisibility(View.INVISIBLE);
+			portEditText.setVisibility(View.INVISIBLE);
+			seaEditText.setVisibility(View.INVISIBLE);
+			rockEditText.setVisibility(View.VISIBLE);
+			flameEditText.setVisibility(View.INVISIBLE);
+			linl.setBackgroundResource(R.drawable.festival_2_introduction2);
+			count = 2;
+		}
+		else if(v.getId()==R.id.view17){
+			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_1);
+			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
+			v17.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_3);
+			v18.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_4);
+			v19.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_5);
+			sunEditText.setVisibility(View.INVISIBLE);
+			portEditText.setVisibility(View.VISIBLE);
+			seaEditText.setVisibility(View.INVISIBLE);
+			rockEditText.setVisibility(View.INVISIBLE);
+			flameEditText.setVisibility(View.INVISIBLE);
+			linl.setBackgroundResource(R.drawable.festival_3_introduction2);
+			count = 3;
+		}	
+		else if(v.getId()==R.id.view18){
+			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_1);
+			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
+			v17.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_3);
+			v18.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_4);
+			v19.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_5);
+			sunEditText.setVisibility(View.INVISIBLE);
+			portEditText.setVisibility(View.INVISIBLE);
+			seaEditText.setVisibility(View.VISIBLE);
+			rockEditText.setVisibility(View.INVISIBLE);
+			flameEditText.setVisibility(View.INVISIBLE);
+			linl.setBackgroundResource(R.drawable.festival_4_introduction2);
+			count = 4;
+		}	
+		else if(v.getId()==R.id.view19){
+			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_1);
+			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
+			v17.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_3);
+			v18.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_4);
+			v19.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_5);
+			sunEditText.setVisibility(View.INVISIBLE);
+			portEditText.setVisibility(View.INVISIBLE);
+			seaEditText.setVisibility(View.INVISIBLE);
+			rockEditText.setVisibility(View.INVISIBLE);
+			flameEditText.setVisibility(View.VISIBLE);
+			linl.setBackgroundResource(R.drawable.festival_5_introduction2);
+			count = 5;
+		}
+
+		if(v.getId() == R.id.imageView){
+			if(count == 1){
+				if(isCoreect("1", sunEditText.getText().toString())){
+					if(overlap[0] == 1)
+						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
+					else
+					{
+						if(overlab[0].equals("1"))
+						{
+							alert.setTitle("�˸�");
+							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								public void onClick(DialogInterface dialog, int which) {										
+								}
+							});
+							alert.show();
+						}
+						else
+						{
+							intent = new Intent(this, MainActivity.class);
+							try{
+								alert.setTitle("�˸�");
+								alert.setMessage("�����Դϴ�^^");
+								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+									public void onClick(DialogInterface dialog, int which) {	
+										intent.putExtra("chang", 11);
+										startActivity(intent);
+									}
+								});
+								alert.show();
+								writer.write("1" + "\t");
+								writer.flush(); 	
+							}catch(Exception e){}
+							overlap[0] = 1;
+						}	         
+					}
+				}
+				else{
+					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				}
+			}
+			if(count == 2){
+				if(isCoreect("2", rockEditText.getText().toString())){
+					if(overlap[1] == 2)
+						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
+					else
+					{
+						if(overlab[1].equals("2"))
+						{
+							alert.setTitle("�˸�");
+							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								public void onClick(DialogInterface dialog, int which) {								
+								}
+							});
+							alert.show();
+						}
+						else
+						{
+							intent = new Intent(this, MainActivity.class);
+							try{
+								alert.setTitle("�˸�");
+								alert.setMessage("�����Դϴ�^^");
+								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+									public void onClick(DialogInterface dialog, int which) {
+										intent.putExtra("chang", 12);
+										startActivity(intent);
+									}
+								});
+								alert.show();
+
+								writer.write("2" + "\t");
+								writer.flush(); 
+							}catch(Exception e){}
+							overlap[1] = 2;
+						}	         
+					}
+				}
+				else{
+					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				}
+			}
+			if(count == 3){
+				if(isCoreect("3", portEditText.getText().toString())){
+					if(overlap[2] == 3)
+						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
+					else
+					{
+						//try{ 		  
+						if(overlab[2].equals("3"))
+						{
+							alert.setTitle("�˸�");
+							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								public void onClick(DialogInterface dialog, int which) {								
+								}
+							});
+							alert.show();
+							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
+						}
+						else
+						{
+							intent = new Intent(this, MainActivity.class);
+							try{
+								alert.setTitle("�˸�");
+								alert.setMessage("�����Դϴ�^^");
+								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+									public void onClick(DialogInterface dialog, int which) {
+										intent.putExtra("chang", 13);
+										startActivity(intent);
+									}
+								});
+								alert.show();
+								//Toast.makeText(this, "�����Դϴ������ؿ�^0^", Toast.LENGTH_LONG).show();
+								writer.write("3" + "\t");
+								writer.flush(); 	
+							}catch(Exception e){}
+							overlap[2] = 1;
+						}	         
+					}
+				}
+				else{
+					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				}
+			}
+			if(count == 4){
+				if(isCoreect("4", seaEditText.getText().toString())){
+					if(overlap[3] == 4)
+						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
+					else
+					{
+						//try{ 		  
+						if(overlab[3].equals("4"))
+						{
+							alert.setTitle("�˸�");
+							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								public void onClick(DialogInterface dialog, int which) {								
+								}
+							});
+							alert.show();
+							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
+						}
+						else
+						{
+							intent = new Intent(this, MainActivity.class);
+							try{
+								alert.setTitle("�˸�");
+								alert.setMessage("�����Դϴ�^^");
+								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+									public void onClick(DialogInterface dialog, int which) {
+										intent.putExtra("chang", 14);
+										startActivity(intent);
+									}
+								});
+								alert.show();
+								//Toast.makeText(this, "�����Դϴ������ؿ�^0^", Toast.LENGTH_LONG).show();
+								writer.write("4" + "\t");
+								writer.flush(); 
+							}catch(Exception e){}
+							overlap[3] = 4;
+						}	         
+					}
+				}
+				else{
+					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				}
+			}
+			if(count == 5){
+				if(isCoreect("5", flameEditText.getText().toString())){
+					if(overlap[4] == 5)
+						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
+					else
+					{
+						//try{ 		  
+						if(overlab[4].equals("5"))
+						{
+							alert.setTitle("�˸�");
+							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								public void onClick(DialogInterface dialog, int which) {								
+								}
+							});
+							alert.show();
+							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
+						}
+						else							
+						{
+							intent = new Intent(this, MainActivity.class);
+							try{
+								alert.setTitle("�˸�");
+								alert.setMessage("�����Դϴ�^^");
+								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+									public void onClick(DialogInterface dialog, int which) {
+										intent.putExtra("chang", 15);
+										startActivity(intent);
+									}
+								});
+								alert.show();
+								writer.write("5" + "\t");
+								writer.flush(); 									
+							}catch(Exception e){}
+							overlap[4] = 5;
+						}	         
+					}
+				}
+				else{
+					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		try{
+			writer.flush();
+			writer.close();
+		}catch(Exception e){;}
+	}
+
+	public Boolean isCoreect(String number,String answer) {
+		if(map.get(number).equals(answer)) {
+			return true;
+		}
+		return false;
+	}
+}
