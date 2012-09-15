@@ -107,8 +107,6 @@ public class QuizActivity extends Activity implements OnClickListener{
 		seaEditText = (EditText) findViewById(R.id.seaEditText);
 		flameEditText = (EditText) findViewById(R.id.flameEditText);
 
-		sunEditText.setVisibility(View.VISIBLE);
-
 		v15 = (View)findViewById(R.id.view15);
 		v16 = (View)findViewById(R.id.view16);
 		v17 = (View)findViewById(R.id.view17);
@@ -232,8 +230,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 					{
 						if(overlab[0].equals("1"))
 						{
-							alert.setTitle("�˸�");
-							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setTitle("정답!");
+							alert.setMessage("이미 퀴즈를 풀었습니다");
 							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {										
 								}
@@ -244,9 +242,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 						{
 							intent = new Intent(this, MainActivity.class);
 							try{
-								alert.setTitle("�˸�");
-								alert.setMessage("�����Դϴ�^^");
-								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								alert.setTitle("정답");
+								alert.setMessage("퀴즈를 맞추셨습니다!!");
+								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {	
 										intent.putExtra("chang", 11);
 										startActivity(intent);
@@ -272,8 +270,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 					{
 						if(overlab[1].equals("2"))
 						{
-							alert.setTitle("�˸�");
-							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setTitle("");
+							alert.setMessage("이미 퀴즈를 풀었습니다");
 							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
@@ -284,7 +282,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 						{
 							intent = new Intent(this, MainActivity.class);
 							try{
-								alert.setTitle("�˸�");
+								alert.setTitle("정답");
 								alert.setMessage("�����Դϴ�^^");
 								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {

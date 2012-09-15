@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 
 public class QuizIntroActivity extends Activity {
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
