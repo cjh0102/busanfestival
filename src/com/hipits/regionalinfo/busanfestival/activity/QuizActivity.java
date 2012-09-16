@@ -230,7 +230,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 					{
 						if(overlab[0].equals("1"))
 						{
-							alert.setTitle("정답!");
+							alert.setTitle("!!");
 							alert.setMessage("이미 퀴즈를 풀었습니다");
 							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {										
@@ -259,7 +259,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 					}
 				}
 				else{
-					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
 			if(count == 2){
@@ -270,9 +270,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 					{
 						if(overlab[1].equals("2"))
 						{
-							alert.setTitle("");
+							alert.setTitle("!!");
 							alert.setMessage("이미 퀴즈를 풀었습니다");
-							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
 							});
@@ -283,8 +283,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 							intent = new Intent(this, MainActivity.class);
 							try{
 								alert.setTitle("정답");
-								alert.setMessage("�����Դϴ�^^");
-								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								alert.setMessage("퀴즈를 맞추셨습니다!!");
+								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
 										intent.putExtra("chang", 12);
 										startActivity(intent);
@@ -300,7 +300,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 					}
 				}
 				else{
-					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
 			if(count == 3){
@@ -309,32 +309,29 @@ public class QuizActivity extends Activity implements OnClickListener{
 						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
 					else
 					{
-						//try{ 		  
 						if(overlab[2].equals("3"))
 						{
-							alert.setTitle("�˸�");
-							alert.setMessage("�̸̹��߼̾��^^");
+							alert.setTitle("!!");
+							alert.setMessage("이미 퀴즈를 풀었습니다");
 							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
 							});
 							alert.show();
-							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
 						}
 						else
 						{
 							intent = new Intent(this, MainActivity.class);
 							try{
-								alert.setTitle("�˸�");
-								alert.setMessage("�����Դϴ�^^");
-								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								alert.setTitle("정답");
+								alert.setMessage("퀴즈를 맞추셨습니다!!");
+								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
 										intent.putExtra("chang", 13);
 										startActivity(intent);
 									}
 								});
 								alert.show();
-								//Toast.makeText(this, "�����Դϴ������ؿ�^0^", Toast.LENGTH_LONG).show();
 								writer.write("3" + "\t");
 								writer.flush(); 	
 							}catch(Exception e){}
@@ -352,32 +349,29 @@ public class QuizActivity extends Activity implements OnClickListener{
 						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
 					else
 					{
-						//try{ 		  
 						if(overlab[3].equals("4"))
 						{
-							alert.setTitle("�˸�");
-							alert.setMessage("�̸̹��߼̾��^^");
-							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+							alert.setTitle("!!");
+							alert.setMessage("이미 퀴즈를 풀었습니다");
+							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
 							});
 							alert.show();
-							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
 						}
 						else
 						{
 							intent = new Intent(this, MainActivity.class);
 							try{
-								alert.setTitle("�˸�");
-								alert.setMessage("�����Դϴ�^^");
-								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								alert.setTitle("정답");
+								alert.setMessage("퀴즈를 맞추셨습니다!!");
+								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
 										intent.putExtra("chang", 14);
 										startActivity(intent);
 									}
 								});
 								alert.show();
-								//Toast.makeText(this, "�����Դϴ������ؿ�^0^", Toast.LENGTH_LONG).show();
 								writer.write("4" + "\t");
 								writer.flush(); 
 							}catch(Exception e){}
@@ -386,7 +380,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 					}
 				}
 				else{
-					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
 			if(count == 5){
@@ -395,25 +389,23 @@ public class QuizActivity extends Activity implements OnClickListener{
 						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
 					else
 					{
-						//try{ 		  
 						if(overlab[4].equals("5"))
 						{
-							alert.setTitle("�˸�");
-							alert.setMessage("�̸̹��߼̾��^^");
-							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+							alert.setTitle("!!");
+							alert.setMessage("이미 퀴즈를 풀었습니다");
+							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
 							});
 							alert.show();
-							//Toast.makeText(this, "�̹�����^0^", Toast.LENGTH_LONG).show();  
 						}
 						else							
 						{
 							intent = new Intent(this, MainActivity.class);
 							try{
-								alert.setTitle("�˸�");
-								alert.setMessage("�����Դϴ�^^");
-								alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+								alert.setTitle("정답");
+								alert.setMessage("퀴즈를 맞추셨습니다!!");
+								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
 										intent.putExtra("chang", 15);
 										startActivity(intent);
@@ -428,7 +420,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 					}
 				}
 				else{
-					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
 		}

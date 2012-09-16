@@ -36,7 +36,7 @@ public class FestivalTabActivity extends FragmentActivity {
 		FestivalIntroductionFragment.MSG = msg;
 		FestivalGuideListFragment.MSG = msg;
 		CalendarofEventsFragment.MSG = msg;
-		
+		FestivalLocationFragment.MSG = msg;
 		
 		adapter.addTab(tabHost.newTabSpec("tag1").setIndicator(""), FestivalIntroductionFragment.class, null);
 		adapter.addTab(tabHost.newTabSpec("tag2").setIndicator(""), FestivalGuideListFragment.class, null);
