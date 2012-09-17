@@ -24,6 +24,7 @@ public class StartActivity extends Activity {
 			public void handleMessage(Message msg) {
 				if (msg.what == INTRO_SUCCESS) {
 					Intent intent = new Intent(StartActivity.this, MainActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 					startActivity(intent);
 					finish();
 				}
@@ -37,6 +38,7 @@ public class StartActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(StartActivity.this, MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(intent);
 				finish();
 			}

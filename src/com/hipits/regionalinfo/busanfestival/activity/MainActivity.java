@@ -119,8 +119,13 @@ public class MainActivity extends Activity {
 					flameImageView2.setBackgroundResource(R.drawable.main_mouseover_flame2);
 					return true;
 				} else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-					flameImageView.setBackgroundResource(R.drawable.main_flame1);
-					flameImageView2.setBackgroundResource(R.drawable.main_flame2);
+					if (flameFlag == 1) {
+						flameImageView.setBackgroundResource(R.drawable.main_event_flame1);
+						flameImageView2.setBackgroundResource(R.drawable.main_event_flame2);
+					} else {
+						flameImageView.setBackgroundResource(R.drawable.main_flame1);
+						flameImageView2.setBackgroundResource(R.drawable.main_flame2);
+					}
 					intent.putExtra("msg", "flame");
 					startActivity(intent);
 					return true;

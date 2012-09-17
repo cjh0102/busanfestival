@@ -246,7 +246,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 								alert.setMessage("퀴즈를 맞추셨습니다!!");
 								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {	
-										intent.putExtra("chang", 11);
+										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
 									}
 								});
@@ -286,8 +286,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 								alert.setMessage("퀴즈를 맞추셨습니다!!");
 								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
-										intent.putExtra("chang", 12);
+										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
+										finish();
 									}
 								});
 								alert.show();
@@ -313,7 +314,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 						{
 							alert.setTitle("!!");
 							alert.setMessage("이미 퀴즈를 풀었습니다");
-							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {								
 								}
 							});
@@ -327,8 +328,10 @@ public class QuizActivity extends Activity implements OnClickListener{
 								alert.setMessage("퀴즈를 맞추셨습니다!!");
 								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
-										intent.putExtra("chang", 13);
+										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
+										
+										finish();
 									}
 								});
 								alert.show();
@@ -367,8 +370,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 								alert.setMessage("퀴즈를 맞추셨습니다!!");
 								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
-										intent.putExtra("chang", 14);
+										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
+										finish();
 									}
 								});
 								alert.show();
@@ -407,8 +411,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 								alert.setMessage("퀴즈를 맞추셨습니다!!");
 								alert.setPositiveButton("이벤트 보러 가기", new DialogInterface.OnClickListener() {							
 									public void onClick(DialogInterface dialog, int which) {
-										intent.putExtra("chang", 15);
+										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
+										finish();
 									}
 								});
 								alert.show();
