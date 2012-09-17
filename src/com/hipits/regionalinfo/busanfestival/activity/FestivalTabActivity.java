@@ -18,6 +18,7 @@ public class FestivalTabActivity extends FragmentActivity {
 
 	private TabHost tabHost;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

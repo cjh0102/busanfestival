@@ -83,7 +83,7 @@ public class FestivalGuideListFragment extends ListFragment {
 		} else if (MSG.equals("sea")) {
 			programs = getSeaDatas();
 		} else if (MSG.equals("sun")) {
-			programs = getPortDatas();
+			programs = getSunDatas();
 		} else if (MSG.equals("rock")) {
 			programs = getRockDatas();
 		} else if (MSG.equals("flame")) {
@@ -151,7 +151,6 @@ public class FestivalGuideListFragment extends ListFragment {
 		}
 		return retDatas;
 	}
-
 
 	public List<Program> getPortDatas() {
 		List<Program> datas = new ArrayList<Program>();
@@ -259,6 +258,35 @@ public class FestivalGuideListFragment extends ListFragment {
 			datas.add(new Program(artists[i], " ", contents[i], imageViewIds[i], "부산국제록페스티벌 라인업"));
 		}
 		return datas;
+	}
+
+	public List<Program> getSunDatas() {
+		String[] titles = new String[]{"시민의 종 타종식", "임진년 해맞이"};
+		String[] dates = new String[]{"2011.12.31(토)" + "\n시간" + "23:30 ~ 00:30", "2012.1.1(일)" + "\n시간" + "06:30 ~ 08:00"};
+		String[] places = new String[]{"용두산 공원", "해운대 해수욕장"};
+		Integer[] imageViewId = new Integer[]{R.drawable.sun0, R.drawable.sun1};
+
+		List<Program> programs = new ArrayList<Program>();
+		
+		for (int i = 0; i < places.length; i++) {
+			programs.add(new Program(titles[i], places[i], dates[i], imageViewId[i], "해맞이 축제"));
+		}
+		
+		return programs;
+	}
+
+	public List<Program> getFlameDatas() {
+		String[] titles = new String[]{};
+		String[] dates = new String[]{};
+		String[] places = new String[]{};
+		Integer[] imageViewId = new Integer[]{};
+		
+		List<Program> programs = new ArrayList<Program>();
+		
+		for (int i = 0; i < titles.length; i++) {
+			programs.add(new Program(titles[i], places[i], dates[i], imageViewId[i], "section"));
+		}
+		return programs;
 	}
 }
 

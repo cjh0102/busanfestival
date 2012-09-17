@@ -27,6 +27,7 @@ public class FestivalLocationFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(getActivity(), GuideMapActivity.class);
+				intent.putExtra("msg", MSG);
 				startActivity(intent);
 			}
 		});

@@ -232,7 +232,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 						{
 							alert.setTitle("!!");
 							alert.setMessage("이미 퀴즈를 풀었습니다");
-							alert.setPositiveButton("Ȯ��", new DialogInterface.OnClickListener() {							
+							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
 								public void onClick(DialogInterface dialog, int which) {										
 								}
 							});
