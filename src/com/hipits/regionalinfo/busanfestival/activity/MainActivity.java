@@ -3,6 +3,7 @@ package com.hipits.regionalinfo.busanfestival.activity;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,19 +13,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.IInterface;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewDebug.FlagToString;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
+import com.hipits.regionalinfo.busanfestival.R;
 
 public class MainActivity extends Activity {
+	
 	private Intent intent;
 	private Intent quizIntent;
 	private ImageView sunImageView;
@@ -180,8 +181,8 @@ public class MainActivity extends Activity {
 		settingImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//여기에 etc Activity 넘겨주면된다~~~~~~~~
-				
+				Intent settingIntent = new Intent(MainActivity.this, ETCActivity.class);
+				startActivity(settingIntent);
 			}
 		});
 
@@ -233,5 +234,15 @@ public class MainActivity extends Activity {
 			} 
 		}
 		scanner.close();
+	}
+	
+	public void manageAlarm(String control) {
+		if (control.equals("ON")) {
+			Date currentDate = new Date();
+			int mMonth = currentDate.getMonth() + 1;
+			int mDate = currentDate.getDate();
+		} else {
+			
+		}
 	}
 }

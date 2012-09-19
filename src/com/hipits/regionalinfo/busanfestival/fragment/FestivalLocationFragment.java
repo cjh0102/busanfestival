@@ -10,8 +10,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.hipits.regionalinfo.busanfestival.R;
 import com.hipits.regionalinfo.busanfestival.activity.GuideMapActivity;
-import com.hipits.regionalinfo.busanfestival.activity.R;
 
 public class FestivalLocationFragment extends Fragment {
 	public static String MSG = null;

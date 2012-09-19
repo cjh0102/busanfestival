@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.hipits.regionalinfo.busanfestival.activity.R;
+import com.hipits.regionalinfo.busanfestival.R;
 
 public class FestivalIntroductionFragment extends Fragment{
 	

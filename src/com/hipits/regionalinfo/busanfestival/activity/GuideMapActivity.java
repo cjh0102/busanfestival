@@ -2,11 +2,13 @@ package com.hipits.regionalinfo.busanfestival.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.hipits.regionalinfo.busanfestival.R;
 
 
 public class GuideMapActivity extends MapActivity {

@@ -1,6 +1,6 @@
 package com.hipits.regionalinfo.busanfestival.manager;
 
-import com.hipits.regionalinfo.busanfestival.activity.R;
+import com.hipits.regionalinfo.busanfestival.R;
 import com.hipits.regionalinfo.busanfestival.model.TabImageId;
 
 public class TabImageIdManager {

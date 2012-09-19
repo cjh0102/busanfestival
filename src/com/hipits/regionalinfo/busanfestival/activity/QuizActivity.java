@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.hipits.regionalinfo.busanfestival.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,6 +16,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -144,7 +147,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 			String strs[];
 			BufferedReader br = new BufferedReader(new FileReader(Environment.getExternalStorageDirectory()
 					+ "/temp1/flag.txt")); 
-			strs = br.readLine().split("\t");       	   
+			strs = br.readLine().split("\t");  
 			br.close();
 		}catch(Exception e){
 

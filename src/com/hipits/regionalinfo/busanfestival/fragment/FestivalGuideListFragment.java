@@ -3,10 +3,6 @@ package com.hipits.regionalinfo.busanfestival.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hipits.regionalinfo.busanfestival.activity.R;
-import com.hipits.regionalinfo.busanfestival.adapter.SectionListAdapter;
-import com.hipits.regionalinfo.busanfestival.model.Program;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -16,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.hipits.regionalinfo.busanfestival.R;
+import com.hipits.regionalinfo.busanfestival.adapter.SectionListAdapter;
+import com.hipits.regionalinfo.busanfestival.model.Program;
 
 public class FestivalGuideListFragment extends ListFragment {
 

@@ -5,9 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.hipits.regionalinfo.busanfestival.activity.R;
-import com.hipits.regionalinfo.busanfestival.model.Program;
-
 import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.hipits.regionalinfo.busanfestival.R;
+import com.hipits.regionalinfo.busanfestival.model.Program;
 
 /**
  * Adapter for sections.

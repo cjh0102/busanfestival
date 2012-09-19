@@ -1,7 +1,5 @@
 package com.hipits.regionalinfo.busanfestival.fragment;
 
-import com.hipits.regionalinfo.busanfestival.activity.R;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.hipits.regionalinfo.busanfestival.R;
 
 public class CalendarofEventsFragment extends Fragment {
 

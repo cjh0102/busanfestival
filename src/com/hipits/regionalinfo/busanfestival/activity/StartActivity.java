@@ -1,5 +1,7 @@
 package com.hipits.regionalinfo.busanfestival.activity;
 
+import com.hipits.regionalinfo.busanfestival.R;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,6 +20,7 @@ public class StartActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
+		
 		final int INTRO_SUCCESS = 1;
 
 		final Handler handler = new Handler() {
@@ -31,9 +35,9 @@ public class StartActivity extends Activity {
 			}
 
 		};        
-
+		
 		final View view = findViewById(R.id.rootView);
-
+		
 		view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -58,12 +62,14 @@ public class StartActivity extends Activity {
 			}
 		}).start();
 
-
 	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
 	}
 }
