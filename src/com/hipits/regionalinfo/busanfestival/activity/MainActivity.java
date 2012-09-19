@@ -21,13 +21,13 @@ import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hipits.regionalinfo.busanfestival.R;
 
 public class MainActivity extends Activity {
-	
+
 	private Intent intent;
-	private Intent quizIntent;
 	private ImageView sunImageView;
 	private ImageView rockImageView;
 	private ImageView portImageView;
@@ -54,27 +54,29 @@ public class MainActivity extends Activity {
 	}	
 
 	public void initImageView() {
+		
 		sunImageView = (ImageView)findViewById(R.id.sunImageView);
 		rockImageView = (ImageView)findViewById(R.id.rockImageView);
 		portImageView = (ImageView)findViewById(R.id.portImageView);
 		flameImageView = (ImageView) findViewById(R.id.flameImageView);
 		flameImageView2 = (ImageView)findViewById(R.id.flameImageView2);
 		seaImageView = (ImageView)findViewById(R.id.seaImageView);
-		
+
 		sunImageView.setBackgroundResource(R.drawable.sun_btn_selector);
 		rockImageView.setBackgroundResource(R.drawable.rock_btn_selector);
 		portImageView.setBackgroundResource(R.drawable.port_btn_selector);
 		seaImageView.setBackgroundResource(R.drawable.sea_btn_selector);
-		
+
 	}
 	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		initImageView();
-	
+
 		intent = new Intent(MainActivity.this, FestivalTabActivity.class);
 
 		ImageView quizImageView = (ImageView)findViewById(R.id.quizImageView);
@@ -82,7 +84,7 @@ public class MainActivity extends Activity {
 		quizImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				quizIntent = new Intent(MainActivity.this, QuizIntroActivity.class);
+				Intent quizIntent = new Intent(MainActivity.this, QuizIntroActivity.class);
 				startActivity(quizIntent);
 			}
 		});
@@ -175,7 +177,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 			}
 		});
-		
+
 		ImageView settingImageView = (ImageView)findViewById(R.id.settingImageView);
 		settingImageView.setBackgroundResource(R.drawable.setting_btn_selector);
 		settingImageView.setOnClickListener(new OnClickListener() {
@@ -187,7 +189,13 @@ public class MainActivity extends Activity {
 		});
 
 		eventImageView();
-
+		
+		if (ETCActivity.ALARM_STATE.equals("OFF")) {
+			controlAlarm("OFF");
+		} else {
+			controlAlarm("ON");
+		}
+		
 	}
 	public void eventImageView() {
 		File file = new File(Environment.getExternalStorageDirectory() + "/temp1", "flag.txt");
@@ -209,7 +217,7 @@ public class MainActivity extends Activity {
 			String data = (String) scanner.next();
 			datas.add(data);
 		}
-		
+
 		Animation alphaAnimaiton = AnimationUtils.loadAnimation(MainActivity.this, R.anim.alpha);
 
 		for (String data : datas) {
@@ -235,14 +243,27 @@ public class MainActivity extends Activity {
 		}
 		scanner.close();
 	}
-	
-	public void manageAlarm(String control) {
-		if (control.equals("ON")) {
+
+	public void controlAlarm(String state) {
+		if (state.equals("ON")) {
 			Date currentDate = new Date();
 			int mMonth = currentDate.getMonth() + 1;
 			int mDate = currentDate.getDate();
+
+			if (mMonth == 9) {
+				int remainNumber = 26 - mDate;
+				if (mDate == 26) {
+					Toast.makeText(MainActivity.this, "오늘 축제입니다", Toast.LENGTH_SHORT).show();
+				} else if ((remainNumber) <7 || remainNumber > 0) {
+					Toast.makeText(MainActivity.this, "불꽃축제가" + remainNumber  + "일 남았습니다", 
+							Toast.LENGTH_SHORT).show();
+				} else if (remainNumber == 0 || remainNumber == -1){
+					Toast.makeText(MainActivity.this, "불꽃축제가 진행중입니다" , 
+							Toast.LENGTH_SHORT).show();
+				}
+			}
 		} else {
-			
-		}
+			Toast.makeText(MainActivity.this, "알람 OFF", Toast.LENGTH_SHORT).show();
+		} 
 	}
 }
