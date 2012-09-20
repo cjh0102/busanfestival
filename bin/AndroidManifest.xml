@@ -56,7 +56,7 @@
 		</uses-library>
 
 		<activity
-			android:name=".activity.ETCActivity"
+			android:name=".activity.EtcActivity"
 			android:configChanges="orientation|keyboardHidden|keyboard"
 			android:screenOrientation="portrait">
 		</activity>

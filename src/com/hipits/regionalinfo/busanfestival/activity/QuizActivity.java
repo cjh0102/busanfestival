@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
@@ -36,19 +38,19 @@ public class QuizActivity extends Activity implements OnClickListener{
 	View v19;
 	View imagev;
 	LinearLayout linl;
-	String[] quizs = {"e", "e",	"w!! w", "w!!", "w!"};
-	String[] quizs2 = {"a", "a!","a", "b! b", "b!"};
 
 	int count = 0;
+
 	File path;
 	File file;
 	FileWriter writer;
-	String reads;
+
 	int[] overlap = new int[5];
+
 	Intent intent;
 
-	String strs[] = {"","","","","",""};
-	String overlab[] = {"","","","","",""};
+	String[] strs = new String[]{"", "", "", "",""};
+	String[] overlab = new String[]{"", "", "", "", ""};
 
 	AlertDialog.Builder alert;
 
@@ -58,19 +60,23 @@ public class QuizActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz);
 
-		alert = new AlertDialog.Builder(this); //���̾�α�
+		alert = new AlertDialog.Builder(this); 
 
 		path = new File(Environment.getExternalStorageDirectory() + "/temp1");
-		path.mkdirs();
+		if (!path.exists()) {
+			path.mkdirs();
+		}
 
 		file = new File(path, "flag.txt");
 
-		/*		try{
-			if (file.exists()){
-				file.delete();
-				}
-			}catch(Exception e){;}
-		 */
+		if (!file.exists()) {
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		try{
 			writer = new FileWriter(file, true);
 
@@ -78,8 +84,11 @@ public class QuizActivity extends Activity implements OnClickListener{
 					+ "/temp1/flag.txt")); 
 			strs = br.readLine().split("\t");       	   
 			br.close();
+			
 
-		}catch(Exception e){;}  
+		}catch(Exception e){
+			
+		} 
 
 		for(int i = 0; i < strs.length; i++)
 		{
@@ -94,14 +103,13 @@ public class QuizActivity extends Activity implements OnClickListener{
 			else if (strs[i].equals("5"))
 				overlab[4] = "5";
 		}
-
-
+		
 		map = new HashMap<String, String>();
-		map.put("1", "y");
-		map.put("2", "n");
-		map.put("3", "f");
-		map.put("4", "h");
-		map.put("5", "m");
+		map.put("1", "용두산");
+		map.put("2", "부활");
+		map.put("3", "나제즈다");
+		map.put("4", "윈드서핑");
+		map.put("5", "나이아가라");
 
 
 		sunEditText = (EditText) findViewById(R.id.sunEditText);
@@ -144,15 +152,14 @@ public class QuizActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		try{
-			String strs[];
 			BufferedReader br = new BufferedReader(new FileReader(Environment.getExternalStorageDirectory()
 					+ "/temp1/flag.txt")); 
 			strs = br.readLine().split("\t");  
 			br.close();
+			
 		}catch(Exception e){
 
 		}
-
 		if((v.getId()==R.id.view15)){
 			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_1);
 			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
@@ -166,6 +173,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 			flameEditText.setVisibility(View.INVISIBLE);
 			linl.setBackgroundResource(R.drawable.festival_1_introduction2);
 			count = 1;
+			Toast.makeText(this, "" + overlab[0], Toast.LENGTH_SHORT).show();
+	
 		}
 		else if(v.getId()==R.id.view16){
 			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_1);
@@ -231,8 +240,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 						Toast.makeText(this, "That's right", Toast.LENGTH_LONG).show();
 					else
 					{
-						if(overlab[0].equals("1"))
-						{
+						if(overlab[0].equals("1")) {
 							alert.setTitle("!!");
 							alert.setMessage("이미 퀴즈를 풀었습니다");
 							alert.setPositiveButton("닫기", new DialogInterface.OnClickListener() {							
@@ -240,9 +248,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 								}
 							});
 							alert.show();
-						}
-						else
-						{
+							
+						}else {
 							intent = new Intent(this, MainActivity.class);
 							try{
 								alert.setTitle("정답");
@@ -260,8 +267,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 							overlap[0] = 1;
 						}	         
 					}
-				}
-				else{
+				} else if (sunEditText.getText().toString().length() == 0) {
+					Toast.makeText(this, "답을 적으세요~~", Toast.LENGTH_LONG).show();
+				} else {
 					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
@@ -302,8 +310,9 @@ public class QuizActivity extends Activity implements OnClickListener{
 							overlap[1] = 2;
 						}	         
 					}
-				}
-				else{
+				} else if (rockEditText.getText().toString().length() == 0) {
+					Toast.makeText(this, "답을 적으세요~~", Toast.LENGTH_LONG).show();
+				} else {
 					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
@@ -333,7 +342,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 									public void onClick(DialogInterface dialog, int which) {
 										intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 										startActivity(intent);
-										
+
 										finish();
 									}
 								});
@@ -344,9 +353,10 @@ public class QuizActivity extends Activity implements OnClickListener{
 							overlap[2] = 1;
 						}	         
 					}
-				}
-				else{
-					Toast.makeText(this, "you fucking loser", Toast.LENGTH_LONG).show();
+				} else if (portEditText.getText().toString().length() == 0) {
+					Toast.makeText(this, "답을 적으세요~~", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(this, "답이 틀렸습니다.", Toast.LENGTH_LONG).show();
 				}
 			}
 			if(count == 4){
@@ -385,11 +395,13 @@ public class QuizActivity extends Activity implements OnClickListener{
 							overlap[3] = 4;
 						}	         
 					}
-				}
-				else{
+				} else if (seaEditText.getText().toString().length() == 0) {
+					Toast.makeText(this, "답을 적으세요~~", Toast.LENGTH_LONG).show();
+				} else {
 					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();
 				}
 			}
+
 			if(count == 5){
 				if(isCoreect("5", flameEditText.getText().toString())){
 					if(overlap[4] == 5)
@@ -426,6 +438,8 @@ public class QuizActivity extends Activity implements OnClickListener{
 							overlap[4] = 5;
 						}	         
 					}
+				} else if (flameEditText.getText().toString().length() == 0) {
+					Toast.makeText(this, "답을 적으세요~~", Toast.LENGTH_LONG).show();
 				}
 				else{
 					Toast.makeText(this, "답이 틀렸습니다", Toast.LENGTH_LONG).show();

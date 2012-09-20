@@ -183,14 +183,14 @@ public class MainActivity extends Activity {
 		settingImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent settingIntent = new Intent(MainActivity.this, ETCActivity.class);
+				Intent settingIntent = new Intent(MainActivity.this, EtcActivity.class);
 				startActivity(settingIntent);
 			}
 		});
 
 		eventImageView();
 		
-		if (ETCActivity.ALARM_STATE.equals("OFF")) {
+		if (EtcActivity.ALARM_STATE.equals("OFF")) {
 			controlAlarm("OFF");
 		} else {
 			controlAlarm("ON");
