@@ -23,32 +23,32 @@ public class EtcActivity extends Activity implements OnClickListener{
 	File path;
 	Intent intent;
 	AlertDialog.Builder alert;
-	View Cbutton;
-	View Dbutton;
-	View Abutton;
+	View cleanButton;
+	View doneButton;
+	View alarmButton;
 	
 	static String ALARM_STATE = "OFF";
 	
 	public void init(){
 
-		Cbutton = (View)findViewById(R.id.CleanButton);
-		Dbutton = (View)findViewById(R.id.DoneButton);
-		Abutton = (View)findViewById(R.id.AlamButton);
+		cleanButton = (View)findViewById(R.id.CleanButton);
+		doneButton = (View)findViewById(R.id.DoneButton);
+		alarmButton = (View)findViewById(R.id.AlamButton);
 
-		Cbutton.setBackgroundResource(R.drawable.cleanmain_btn_selector);
-		Dbutton.setBackgroundResource(R.drawable.donemain_btn_selector);
+		cleanButton.setBackgroundResource(R.drawable.cleanmain_btn_selector);
+		doneButton.setBackgroundResource(R.drawable.donemain_btn_selector);
 		
 		if (ALARM_STATE.equals("OFF")) {
-			Abutton.setBackgroundResource(R.drawable.setting_btn_mouseover_17);
+			alarmButton.setBackgroundResource(R.drawable.setting_btn_mouseover_17);
 		} else {
-			Abutton.setBackgroundResource(R.drawable.setting_btn_normal_17);
+			alarmButton.setBackgroundResource(R.drawable.setting_btn_normal_17);
 		}
 		
 		alert = new AlertDialog.Builder(this);
 
-		Cbutton.setOnClickListener(this);
-		Dbutton.setOnClickListener(this);
-		Abutton.setOnClickListener(this);
+		cleanButton.setOnClickListener(this);
+		doneButton.setOnClickListener(this);
+		alarmButton.setOnClickListener(this);
 		
 		path = new File(Environment.getExternalStorageDirectory() + "/temp1");
 		
@@ -132,7 +132,7 @@ public class EtcActivity extends Activity implements OnClickListener{
 			alert.setPositiveButton("켜기", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					ALARM_STATE = "ON";
-					Abutton.setBackgroundResource(R.drawable.setting_btn_normal_17);
+					alarmButton.setBackgroundResource(R.drawable.setting_btn_normal_17);
 					startActivity(intent);
 				}
 			}).setNegativeButton("끄기", new DialogInterface.OnClickListener() {
@@ -140,7 +140,7 @@ public class EtcActivity extends Activity implements OnClickListener{
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					ALARM_STATE = "OFF";
-					Abutton.setBackgroundResource(R.drawable.setting_btn_mouseover_17);
+					alarmButton.setBackgroundResource(R.drawable.setting_btn_mouseover_17);
 					startActivity(intent);
 				}
 			});

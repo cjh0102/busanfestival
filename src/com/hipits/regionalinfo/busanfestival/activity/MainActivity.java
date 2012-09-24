@@ -68,7 +68,6 @@ public class MainActivity extends Activity {
 		rockImageView.setBackgroundResource(R.drawable.rock_btn_selector);
 		portImageView.setBackgroundResource(R.drawable.port_btn_selector);
 		seaImageView.setBackgroundResource(R.drawable.sea_btn_selector);
-
 	}
 	
 	@Override
