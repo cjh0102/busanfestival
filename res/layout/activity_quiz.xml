@@ -39,6 +39,7 @@
 				<EditText
 					android:id="@+id/sunEditText"
 					android:layout_width="0dp"
+					android:textSize="13sp"
 					android:layout_height="wrap_content"
 					android:layout_weight="0.8"
 					android:singleLine="true"
@@ -70,6 +71,7 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_weight="0.65"
+					android:textSize="14sp"
 					android:singleLine="true"
 					android:visibility="invisible"/>
 
@@ -96,6 +98,7 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_weight="1.1"
+					android:textSize="14sp"
 					android:singleLine="true"
 					android:visibility="invisible"/>
 
@@ -123,6 +126,7 @@
 					android:layout_height="wrap_content"
 					android:layout_weight="1.02"
 					android:singleLine="true"
+					android:textSize="14sp"
 					android:ems="10"
 					android:visibility="invisible"/>
 
@@ -149,7 +153,7 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_weight="1.28"
-					android:textSize="5dp"
+					android:textSize="14sp"
 					android:singleLine="true"
 					android:visibility="invisible"/>
 

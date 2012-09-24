@@ -9,10 +9,12 @@ import java.util.Scanner;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.style.BulletSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,7 +41,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("죵로하시겠습니까??")
+		builder.setMessage("종료하시겠습니까??")
 		.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -69,7 +71,6 @@ public class MainActivity extends Activity {
 
 	}
 	
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -175,6 +176,9 @@ public class MainActivity extends Activity {
 		characterImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Intent characterIntent = new Intent(MainActivity.this, CharacterActivity.class);
+				startActivity(characterIntent);
+				
 			}
 		});
 
@@ -243,27 +247,28 @@ public class MainActivity extends Activity {
 		}
 		scanner.close();
 	}
-
+	
 	public void controlAlarm(String state) {
 		if (state.equals("ON")) {
+			
 			Date currentDate = new Date();
 			int mMonth = currentDate.getMonth() + 1;
 			int mDate = currentDate.getDate();
-
+		
+			AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+			builder.setTitle("!!!!알림!!!!").setNegativeButton("닫기", null);
+			
 			if (mMonth == 9) {
 				int remainNumber = 26 - mDate;
 				if (mDate == 26) {
-					Toast.makeText(MainActivity.this, "오늘 축제입니다", Toast.LENGTH_SHORT).show();
-				} else if ((remainNumber) <7 || remainNumber > 0) {
-					Toast.makeText(MainActivity.this, "불꽃축제가" + remainNumber  + "일 남았습니다", 
-							Toast.LENGTH_SHORT).show();
-				} else if (remainNumber == 0 || remainNumber == -1){
-					Toast.makeText(MainActivity.this, "불꽃축제가 진행중입니다" , 
-							Toast.LENGTH_SHORT).show();
+					builder.setMessage("오늘 축제입니다").show();
+				} else if ((remainNumber) < 7 || remainNumber > 0) {
+					builder.setMessage("불꽃축제가" + remainNumber  + "일 남았습니다").show();
+				} else if (remainNumber == 0 || remainNumber == -1) {
+					builder.setMessage("불꽃축제가 진행중입니다").show();
 				}
 			}
 		} else {
-			Toast.makeText(MainActivity.this, "알람 OFF", Toast.LENGTH_SHORT).show();
 		} 
 	}
 }

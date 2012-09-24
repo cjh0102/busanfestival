@@ -87,7 +87,7 @@ public class FestivalGuideListFragment extends ListFragment {
 		} else if (MSG.equals("rock")) {
 			programs = getRockDatas();
 		} else if (MSG.equals("flame")) {
-			programs = getPortDatas();
+			programs = getFlameDatas();
 		}
 
 		StandardArrayAdapter arrayAdapter = new StandardArrayAdapter(getActivity(),
@@ -155,7 +155,7 @@ public class FestivalGuideListFragment extends ListFragment {
 	public List<Program> getPortDatas() {
 		List<Program> datas = new ArrayList<Program>();
 
-		String[] portTitles = {" 부산항 콘서트", "범선 나제다호 공개행사", "넌버벌퍼포먼스 비빔밥 공연", "부산국제힙합페스티벌 예선대회",
+		String[] portTitles = {" 부산항 콘서트", "범선 나제즈다호 공개행사", "넌버벌퍼포먼스 비빔밥 공연", "부산국제힙합페스티벌 예선대회",
 				"2012국민체육진흥공단 이사장배 모터보트대회", "부산항 투어(북항)", "세계인의 날 축하행사", "해군-해경 함정 승선체험",
 				"부산항가족사랑걷기대회", "크루저 요트 승선체험", "세계민속의상 및 음식체험", "즉석 기념촬영 서비스", "갯마을 바다연극",
 				"수상페달보트 체험 & 유로번지 체험", "해양애니메이션 상영","부산항 골든벨","글짓기, 그림대회","해양자연사 탐험","선박항해시뮬레이터 체험", 
@@ -276,16 +276,23 @@ public class FestivalGuideListFragment extends ListFragment {
 	}
 
 	public List<Program> getFlameDatas() {
-		String[] titles = new String[]{};
-		String[] dates = new String[]{};
-		String[] places = new String[]{};
-		Integer[] imageViewId = new Integer[]{};
+		String[] titles = new String[]{"K-POP 콘서트", "부산 멀티불꽃쇼", "식전 행사 거리 퍼레이드", "불꽃 음악회"};
+		String[] dates = new String[]{"2012.10.26(금)" + "\n시간" + "19:00 ~ 22:00", "2012.10.27(토)" + "\n시간" + "20:00 ~ 21:00",
+				"2012.10.27(토)" + "\n시간" + "15:00 ~ 18: 00" , "2012.10.27(토)" + "\n시간" + "18:00 ~ 20:00"};
+		String[] places = new String[]{"부산아시아드 주경기장", "광안리해수욕장 및 광안대교", "광안리 해수욕장 해변로", "광안리해수욕장" +
+				"특설무대"};
+		Integer[] imageViewId = new Integer[]{R.drawable.f0, R.drawable.f1, R.drawable.f2, R.drawable.f3};
 		
 		List<Program> programs = new ArrayList<Program>();
 		
-		for (int i = 0; i < titles.length; i++) {
-			programs.add(new Program(titles[i], places[i], dates[i], imageViewId[i], "section"));
+		for (int i = 0; i < 2; i++) {
+			programs.add(new Program(titles[i], places[i], dates[i], imageViewId[i], "프로그램"));
 		}
+		
+		for (int i = 2; i < imageViewId.length; i++) {
+			programs.add(new Program(titles[i], places[i], dates[i], imageViewId[i], "문화 공연"));
+		}
+		
 		return programs;
 	}
 }

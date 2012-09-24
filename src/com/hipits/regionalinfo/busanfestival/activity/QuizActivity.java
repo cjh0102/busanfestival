@@ -26,19 +26,19 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity implements OnClickListener{
 	private Map<String, String> map;
-	EditText sunEditText;
-	EditText rockEditText;
-	EditText portEditText;
-	EditText seaEditText;
-	EditText flameEditText;
-	View v15;
-	View v16;
-	View v17;
-	View v18;
-	View v19;
-	View imagev;
-	LinearLayout linl;
-
+	private EditText sunEditText;
+	private EditText rockEditText;
+	private EditText portEditText;
+	private EditText seaEditText;
+	private EditText flameEditText;
+	private View v15;
+	private View v16;
+	private View v17;
+	private View v18;
+	private View v19;
+	private View imagev;
+	private LinearLayout linl;
+	
 	int count = 0;
 
 	File path;
@@ -59,7 +59,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz);
-
+		
 		alert = new AlertDialog.Builder(this); 
 
 		path = new File(Environment.getExternalStorageDirectory() + "/temp1");
@@ -148,7 +148,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 		count = 1;
 
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		try{
@@ -160,6 +160,7 @@ public class QuizActivity extends Activity implements OnClickListener{
 		}catch(Exception e){
 
 		}
+		
 		if((v.getId()==R.id.view15)){
 			v15.setBackgroundResource(R.drawable.quiz_undertapbtn_mouseover_1);
 			v16.setBackgroundResource(R.drawable.quiz_undertapbtn_normal_2);
@@ -173,7 +174,6 @@ public class QuizActivity extends Activity implements OnClickListener{
 			flameEditText.setVisibility(View.INVISIBLE);
 			linl.setBackgroundResource(R.drawable.festival_1_introduction2);
 			count = 1;
-			Toast.makeText(this, "" + overlab[0], Toast.LENGTH_SHORT).show();
 	
 		}
 		else if(v.getId()==R.id.view16){
