@@ -17,7 +17,6 @@
                 android:id="@+id/locationImageView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="@drawable/festival_1_map_bgpage"
                 android:orientation="vertical"
                 android:weightSum="1" >
 

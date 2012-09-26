@@ -28,7 +28,7 @@ public class CalendarofEventsFragment extends Fragment {
 		if (MSG.equals("port")) {
 			eventImageView.setBackgroundResource(R.drawable.calendar_port);
 		} else if (MSG.equals("sea")) {
-			eventImageView.setBackgroundResource(R.drawable.calendar_sea);
+			eventImageView.setBackgroundResource(R.drawable.calendar_port);
 		} else if (MSG.equals("flame")) {
 			eventImageView.setBackgroundResource(R.drawable.calendar_flame);
 		} else if (MSG.equals("sun")) {
